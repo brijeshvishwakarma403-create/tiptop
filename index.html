@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Luxury Jewelry Brand - Elegant and timeless collections that embody sophistication.">
+  <title>TipTop Jewels</title>
+  <style>
+    /* ---------- GLOBAL STYLES ---------- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #111;
+      color: #eee;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    h1,h2,h3,h4 { font-family: "Didot", serif; color: #d4af37; }
+    section { padding: 80px 10%; }
+    button {
+      background: #d4af37;
+      color: #111;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: #b9972d; }
+
+    /* ---------- HEADER & NAV ---------- */
+    header {
+      position: fixed;
+      top: 0; width: 100%;
+      background: rgba(17,17,17,0.95);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 10%;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+    .logo { font-size: 1.5rem; font-weight: bold; color: #d4af37; }
+    nav ul { display: flex; list-style: none; gap: 30px; }
+    nav li a { color: #eee; transition: 0.3s; }
+    nav li a:hover { color: #d4af37; }
+    .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .hamburger span { width: 25px; height: 3px; background: #eee; }
+
+    @media(max-width: 768px){
+      nav ul { display: none; flex-direction: column; background: #111; position: absolute; top: 70px; right: 10%; padding: 20px; }
+      nav ul.active { display: flex; }
+      .hamburger { display: flex; }
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1518544801958-efcbf8c2f111?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center; color: #fff;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute; top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-content { position: relative; z-index: 1; animation: fadeInUp 2s ease; }
+    .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 30px; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
+    .about img { flex: 1; border-radius: 10px; }
+    .about-text { flex: 1; }
+
+    /* ---------- FEATURED COLLECTIONS SLIDER ---------- */
+    .slider { position: relative; overflow: hidden; }
+    .slides {
+      display: flex; transition: transform 0.5s ease;
+    }
+    .slide { min-width: 100%; }
+    .slider-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.6); color: #d4af37; border: none;
+      font-size: 2rem; padding: 10px; cursor: pointer;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* ---------- PRODUCT SHOWCASE ---------- */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 20px; }
+    .gallery img { border-radius: 10px; transition: transform 0.3s; cursor: pointer; }
+    .gallery img:hover { transform: scale(1.05); }
+    .lightbox {
+      display: none; position: fixed; top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index: 9999;
+    }
+    .lightbox img { max-width: 90%; max-height: 80%; border: 3px solid #d4af37; border-radius:10px; }
+    .lightbox span {
+      position: absolute; top:20px; right:30px; font-size: 3rem; color:#d4af37; cursor: pointer;
+    }
+
+    /* ---------- COUNTERS ---------- */
+    .counters { display: flex; justify-content: space-around; text-align: center; }
+    .counter { font-size: 2rem; color: #d4af37; }
+
+    /* ---------- TESTIMONIALS ---------- */
+    .testimonials { display: grid; gap: 30px; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); }
+    .testimonial {
+      background: #222; padding: 20px; border-radius: 10px; transition: 0.3s;
+    }
+    .testimonial:hover { transform: translateY(-5px); }
+
+    /* ---------- CONTACT FORM ---------- */
+    form { display: grid; gap: 15px; max-width: 500px; margin: auto; }
+    input,textarea {
+      padding: 12px; border:1px solid #555; background:#222; color:#eee; border-radius: 5px;
+    }
+    input:focus,textarea:focus { outline: none; border-color: #d4af37; }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: #000; text-align: center; padding: 30px 10%;
+    }
+    .socials a { margin: 0 10px; color: #d4af37; font-size: 1.5rem; transition: 0.3s; }
+    .socials a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">TipTop Jewels</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Luxury Jewelry for Timeless Elegance</h1>
+      <p>Discover our handcrafted pieces designed for sophistication.</p>
+      <button onclick="document.getElementById('collections').scrollIntoView({behavior:'smooth'})">Explore</button>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <img src="C:\Users\brije\Downloads\-OWq3rGbaEzDZBck7cZ8.jpg" alt="Jewelry showcase">
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>At TipTop Jewels, we blend artistry and craftsmanship to create jewelry that transcends generations. Each piece reflects luxury, sophistication, and timeless design.</p>
+    </div>
+  </section>
+
+  <!-- FEATURED COLLECTIONS SLIDER -->
+  <section id="collections">
+    <h2>Featured Collections</h2>
+    <div class="slider">
+      <div class="slides">
+        <div class="slide"><img src="C:\Users\brije\Downloads\project\Image1.jpeg" alt="Collection 1"></div>
+        <div class="slide"><img src="C:\Users\brije\Downloads\project\Image2.jpeg" alt="Collection 2"></div>
+        <div class="slide"><img src="C:\Users\brije\Downloads\project\Image1.jpeg" alt="Collection 3"></div>
+      </div>
+      <button class="slider-btn prev">&#10094;</button>
+      <button class="slider-btn next">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- PRODUCTS GALLERY -->
+  <section id="products">
+    <h2>Our Creations</h2>
+    <div class="gallery">
+      <img src="tiptopjewels\images\P1.jpg" alt="Product 1">
+      <img src="C:\Users\brije\Downloads\project\P2.jpg" alt="Product 2">
+      <img src="C:\Users\brije\Downloads\project\P3.jpg" alt="Product 3">
+      <img src="C:\Users\brije\Downloads\project\P4.jpg" alt="Product 4">
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <span onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="" alt="zoomed product">
+  </div>
+
+  <!-- COUNTERS -->
+  <section id="stats">
+    <div class="counters">
+      <div><span class="counter" data-target="100">0</span><p>Happy Clients</p></div>
+      <div><span class="counter" data-target="50">0</span><p>Exclusive Designs</p></div>
+      <div><span class="counter" data-target="5">0</span><p>Years of Craftsmanship</p></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonials">
+      <div class="testimonial"><p>"TipTop Jewels is unmatched in beauty and quality."</p><h4>- Priya</h4></div>
+      <div class="testimonial"><p>"Every piece feels like a work of art."</p><h4>- Preeti</h4></div>
+      <div class="testimonial"><p>"A timeless investment that I will cherish forever."</p><h4>- Kiran</h4></div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 TipTop Jewels. All rights reserved.</p>
+    <div class="socials">
+      <a href="#">&#x1F426;</a>
+      <a href="#">&#x1F465;</a>
+      <a href="#">&#x2601;</a>
+    </div>
+  </footer>
+
+  <script>
+    /* ---------- HAMBURGER MENU ---------- */
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('nav ul');
+    hamburger.addEventListener('click', ()=> navLinks.classList.toggle('active'));
+
+    /* ---------- LIGHTBOX ---------- */
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.gallery img').forEach(img=>{
+      img.addEventListener('click', ()=>{
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+    function closeLightbox(){ lightbox.style.display = 'none'; }
+
+    /* ---------- SLIDER ---------- */
+    const slides = document.querySelector('.slides');
+    const slideImages = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+    document.querySelector('.next').addEventListener('click', ()=> changeSlide(1));
+    document.querySelector('.prev').addEventListener('click', ()=> changeSlide(-1));
+    function changeSlide(direction){
+      currentIndex = (currentIndex + direction + slideImages.length) % slideImages.length;
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+    setInterval(()=>changeSlide(1), 5000);
+
+    /* ---------- COUNTERS ---------- */
+    const counters = document.querySelectorAll('.counter');
+    let started = false;
+    window.addEventListener('scroll', ()=>{
+      const stats = document.getElementById('stats');
+      const top = stats.getBoundingClientRect().top;
+      if(!started && top < window.innerHeight){
+        counters.forEach(counter=>{
+          let target = +counter.dataset.target;
+          let count = 0;
+          const step = target/100;
+          const update = ()=>{
+            count += step;
+            if(count < target){ counter.textContent = Math.floor(count); requestAnimationFrame(update);}
+            else counter.textContent = target;
+          };
+          update();
+        });
+        started = true;
+      }
+    });
+
+    /* ---------- CONTACT FORM VALIDATION ---------- */
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
+      if(name.value.trim() === "" || email.value.trim()==="" || message.value.trim()===""){
+        alert("Please fill in all fields.");
+      } else if(!/\S+@\S+\.\S+/.test(email.value)){
+        alert("Please enter a valid email."); 
+      } else {
+        alert("Message sent successfully!");
+        this.reset();
+      }
+    });
+  </script>
+</body>
+</html>
