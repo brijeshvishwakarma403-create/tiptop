@@ -5,9 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Luxury Jewelry Brand - Elegant and timeless collections that embody sophistication.">
   <title>TipTop Jewels</title>
+
+  <!-- Open Graph SEO -->
+  <meta property="og:title" content="TipTop Jewels - Luxury Jewelry">
+  <meta property="og:description" content="Handcrafted timeless jewelry for elegance and sophistication.">
+  <meta property="og:image" content="assets/images/hero.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
   <style>
     /* ---------- GLOBAL STYLES ---------- */
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Helvetica Neue', sans-serif;
       background-color: #111;
@@ -16,7 +27,7 @@
       overflow-x: hidden;
     }
     a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
+    img { max-width: 100%; display: block; border-radius: 10px; }
     h1,h2,h3,h4 { font-family: "Didot", serif; color: #d4af37; }
     section { padding: 80px 10%; }
     button {
@@ -27,6 +38,7 @@
       font-size: 1rem;
       cursor: pointer;
       transition: 0.3s;
+      border-radius: 5px;
     }
     button:hover { background: #b9972d; }
 
@@ -56,7 +68,7 @@
     /* ---------- HERO SECTION ---------- */
     .hero {
       height: 100vh;
-      background: url('https://images.unsplash.com/photo-1518544801958-efcbf8c2f111?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      background: url('assets/images/hero.jpg') center/cover no-repeat;
       display: flex; flex-direction: column; justify-content: center; align-items: center;
       text-align: center; color: #fff;
       position: relative;
@@ -77,10 +89,10 @@
 
     /* ---------- ABOUT ---------- */
     .about { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
-    .about img { flex: 1; border-radius: 10px; }
+    .about img { flex: 1; }
     .about-text { flex: 1; }
 
-    /* ---------- FEATURED COLLECTIONS SLIDER ---------- */
+    /* ---------- SLIDER ---------- */
     .slider { position: relative; overflow: hidden; }
     .slides {
       display: flex; transition: transform 0.5s ease;
@@ -94,9 +106,9 @@
     .prev { left: 10px; }
     .next { right: 10px; }
 
-    /* ---------- PRODUCT SHOWCASE ---------- */
+    /* ---------- PRODUCTS ---------- */
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 20px; }
-    .gallery img { border-radius: 10px; transition: transform 0.3s; cursor: pointer; }
+    .gallery img { transition: transform 0.3s; cursor: pointer; }
     .gallery img:hover { transform: scale(1.05); }
     .lightbox {
       display: none; position: fixed; top:0; left:0; width:100%; height:100%;
@@ -108,7 +120,7 @@
     }
 
     /* ---------- COUNTERS ---------- */
-    .counters { display: flex; justify-content: space-around; text-align: center; }
+    .counters { display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; gap: 20px; }
     .counter { font-size: 2rem; color: #d4af37; }
 
     /* ---------- TESTIMONIALS ---------- */
@@ -161,42 +173,42 @@
 
   <!-- ABOUT -->
   <section class="about" id="about">
-    <img src="-OWq3rGbaEzDZBck7cZ8.jpg" alt="Jewelry showcase">
+    <img src="assets/images/about.jpg" alt="Gold and diamond jewelry showcase" loading="lazy">
     <div class="about-text">
       <h2>About Us</h2>
       <p>At TipTop Jewels, we blend artistry and craftsmanship to create jewelry that transcends generations. Each piece reflects luxury, sophistication, and timeless design.</p>
     </div>
   </section>
 
-  <!-- FEATURED COLLECTIONS SLIDER -->
+  <!-- FEATURED COLLECTIONS -->
   <section id="collections">
     <h2>Featured Collections</h2>
     <div class="slider">
       <div class="slides">
-        <div class="slide"><img src="Image-3.jpeg" alt="Collection 1"></div>
-        <div class="slide"><img src="Image2.jpeg" alt="Collection 2"></div>
-        <div class="slide"><img src="Image1.jpeg" alt="Collection 3"></div>
+        <div class="slide"><img src="assets/images/collection1.jpg" alt="Diamond Ring Collection" loading="lazy"></div>
+        <div class="slide"><img src="assets/images/collection2.jpg" alt="Necklace Collection" loading="lazy"></div>
+        <div class="slide"><img src="assets/images/collection3.jpg" alt="Earrings Collection" loading="lazy"></div>
       </div>
-      <button class="slider-btn prev">&#10094;</button>
-      <button class="slider-btn next">&#10095;</button>
+      <button class="slider-btn prev" aria-label="Previous Slide">&#10094;</button>
+      <button class="slider-btn next" aria-label="Next Slide">&#10095;</button>
     </div>
   </section>
 
-  <!-- PRODUCTS GALLERY -->
+  <!-- PRODUCTS -->
   <section id="products">
     <h2>Our Creations</h2>
     <div class="gallery">
-      <img src="Image-3.jpeg" alt="Product 1">
-      <img src="Image2.jpeg" alt="Product 2">
-      <img src="Image1.jpeg" alt="Product 3">
-      <img src="Image2.jpeg" alt="Product 4">
+      <img src="assets/images/product1.jpg" alt="Gold Bracelet" loading="lazy">
+      <img src="assets/images/product2.jpg" alt="Diamond Ring" loading="lazy">
+      <img src="assets/images/product3.jpg" alt="Emerald Necklace" loading="lazy">
+      <img src="assets/images/product4.jpg" alt="Pearl Earrings" loading="lazy">
     </div>
   </section>
 
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox">
     <span onclick="closeLightbox()">&times;</span>
-    <img id="lightbox-img" src="" alt="zoomed product">
+    <img id="lightbox-img" src="" alt="Zoomed product">
   </div>
 
   <!-- COUNTERS -->
@@ -212,13 +224,13 @@
   <section id="testimonials">
     <h2>What Our Clients Say</h2>
     <div class="testimonials">
-      <div class="testimonial"><p>"TipTop Jewels is unmatched in beauty and quality."</p><h4>- Priya</h4></div>
-      <div class="testimonial"><p>"Every piece feels like a work of art."</p><h4>- Preeti</h4></div>
-      <div class="testimonial"><p>"A timeless investment that I will cherish forever."</p><h4>- Kiran</h4></div>
+      <blockquote class="testimonial"><p>"TipTop Jewels is unmatched in beauty and quality."</p><h4>- Priya</h4></blockquote>
+      <blockquote class="testimonial"><p>"Every piece feels like a work of art."</p><h4>- Preeti</h4></blockquote>
+      <blockquote class="testimonial"><p>"A timeless investment that I will cherish forever."</p><h4>- Kiran</h4></blockquote>
     </div>
   </section>
 
-  <!-- CONTACT FORM -->
+  <!-- CONTACT -->
   <section id="contact">
     <h2>Contact Us</h2>
     <form id="contactForm">
@@ -233,9 +245,9 @@
   <footer>
     <p>&copy; 2025 TipTop Jewels. All rights reserved.</p>
     <div class="socials">
-      <a href="#">&#x1F426;</a>
-      <a href="#">&#x1F465;</a>
-      <a href="#">&#x2601;</a>
+      <a href="#" aria-label="Twitter">&#x1F426;</a>
+      <a href="#" aria-label="Facebook">&#x1F465;</a>
+      <a href="#" aria-label="Cloud Storage">&#x2601;</a>
     </div>
   </footer>
 
@@ -244,6 +256,9 @@
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('nav ul');
     hamburger.addEventListener('click', ()=> navLinks.classList.toggle('active'));
+    document.querySelectorAll('nav ul li a').forEach(link=>{
+      link.addEventListener('click', ()=> navLinks.classList.remove('active'));
+    });
 
     /* ---------- LIGHTBOX ---------- */
     const lightbox = document.getElementById('lightbox');
@@ -290,7 +305,7 @@
       }
     });
 
-    /* ---------- CONTACT FORM VALIDATION ---------- */
+    /* ---------- CONTACT FORM ---------- */
     document.getElementById('contactForm').addEventListener('submit', function(e){
       e.preventDefault();
       const name = document.getElementById('name');
@@ -308,12 +323,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
